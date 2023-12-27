@@ -1,0 +1,77 @@
+#root {
+  margin: 0 auto;
+  /* text-align: center; */
+}
+
+.app{
+  display: grid;
+  width: 400px;
+  height: 500px;
+  justify-content: center;
+  background-color: #113f67;
+  border-radius: 0.5rem;
+  scrollbar-color: a2a8d3;
+  overflow: auto;
+}
+
+.heading{
+  font-size: 30px;
+  font-family: sans-serif;
+  text-align: center;
+  margin: 0px;
+  padding: 20px;
+}
+.inputForm{
+  height: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  padding: 15px;
+  padding-top: 0px;
+}
+.inputForm input{
+  font-size: 22px;
+  color: #a2a8d3;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  background-color: #1a1a1a;
+}
+.task {
+  display: flex;
+  justify-content: space-between;
+  align-self: center;
+  height: 40px;
+  width: 330px;
+  max-width: 350px;
+  margin: 15px;
+  margin-top: 7px;
+  margin-bottom: 7px;
+  padding: 5px;
+  background-color: #a2a8d3;
+  color: black;
+  border-radius: 5px;
+}
+.task p{
+  text-align: center;
+  text-justify: center;
+}
+
+.editAndDelete{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.editAndDelete svg{
+  cursor: pointer;
+  padding: 5px;
+}
+.editAndDelete svg:hover
+svg:focus{
+  border-color: #646cff;;
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+
