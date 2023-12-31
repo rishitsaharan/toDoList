@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-mongoose.connect("mongodb+srv://rishitsaharan:Mehnakhera%401@cluster0.hzwsqmp.mongodb.net/ToDoList");
+mongoose.connect("mongodb+srv://rishitsaharan:%401@cluster0.hzwsqmp.mongodb.net/ToDoList");
 
 const AdminSchema = new mongoose.Schema({
     username : String,
