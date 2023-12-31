@@ -2,25 +2,42 @@ import { useState } from 'react'
 import './App.css'
 import {ToDoForm} from './toDoForm'
 import {ToDoBody} from './ToDoBody'
+import axios from 'axios'
+import { useParams } from 'react-router-dom'
+import { useEffect } from 'react'
 
-function App () {
+
+
+function App  () {
+  const token = useParams();
   const [newTask, setNewTask] = useState("");
   const [tasks, setTasks] = useState([]);
 
-  let id = 1;
-  function getId() {
-    id++
-    return id - 1;
-  }
-  const addTask = () => {
+  const fetchData = async () => {
+    const response = await axios.get("http://localhost:3000/tasks", {
+        params : token,
+    })
+    setTasks(response.data);
+}
+  const addTask = async () => {
     if(newTask.trim() != ""){
-      setTasks([... tasks, {task : newTask, id : () => getId(), isDone : false, isEditing : false}]);
+      await axios.post("http://localhost:3000/newTask", {
+        jwtToken : token.token,
+        task : newTask,
+        isDone : false,
+        isEditing : false
+      })
+      fetchData();
     }
   }
+  useEffect(() => {
+    fetchData();
+  }, []);
+
   return (
     <div className='app'>
       <ToDoForm newTask={newTask} setNewTask={setNewTask} addTask={addTask}/>
-      <ToDoBody tasks = {tasks} setTasks={setTasks}/>
+      <ToDoBody tasks = {tasks} setTasks= { setTasks} fetchData={fetchData}/>
     </div>
   )
 }

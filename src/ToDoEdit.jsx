@@ -5,11 +5,11 @@ export const ToDoEdit = ({task, handleEdit}) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();  
-        handleEdit(updateTask, task.id);
+        handleEdit(updateTask, task._id);
         setUpdateTask("");
     }
     return (
-        <form onSubmit={handleSubmit}>
+        <form className="edit" onSubmit={handleSubmit}>
             <input type="text" placeholder="Edit your task" value = {updateTask} onChange={(e) => setUpdateTask(e.target.value)}/>
             <button type="submit">Save task</button>
         </form>
